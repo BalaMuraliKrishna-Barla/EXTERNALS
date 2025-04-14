@@ -4,16 +4,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-df = pd.read_csv("path")
+df = pd.read_csv("/content/house_prices_linear_regression.csv")
 
 cols = df.columns.to_list()
 
 encoder = LabelEncoder()
-for col in cols:
-  df[col] = encoder.fit_transform(df[col])
+df['Location'] = encoder.fit_transform(df['Location'])
 
-X = df.drop('play', axis=1)
-y = df['play']
+X = df.drop('Price', axis=1)
+y = df['Price']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
