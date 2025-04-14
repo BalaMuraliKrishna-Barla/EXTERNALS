@@ -8,7 +8,7 @@ import pandas as pd
 # Dataset link : https://www.kaggle.com/datasets/fredericobreno/play-tennis
 
 # Load CSV from Google Drive
-df = pd.read_csv("/content/play_tennis.csv")
+df = pd.read_csv("path")
 
 X = df.drop('play', axis=1)
 y = df['play']
