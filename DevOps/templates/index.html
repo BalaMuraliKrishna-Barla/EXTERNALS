@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reg form</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            height: 500px;
+            width: 400px;
+            border-radius: 30px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 1px dashed black;
+
+        }
+        input {
+            margin-bottom: 10px;
+            height: 35px;
+            width: 300px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: rgb(228, 228, 228);
+            border:none;
+            outline: none;
+        }
+        #submit-btn:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+        #msg {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form id="reg-form">
+            <h1>Registeration Form</h1>
+            <input type="text" placeholder="Enter your name" id="name"> <br>
+            <input type="email" placeholder="Enter your email" id="email"> <br>
+            <input type="password" placeholder="Enter password" id="password"> <br>
+            <input type="password" placeholder="Confirm password" id="confirm-password"> <br>
+            <input type="submit" value="Register" id="submit-btn">
+            <p id="msg" style="color:red"></p>
+        </form>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById("reg-form").addEventListener("submit", submit);
+                });
+            function submit(e) {
+                e.preventDefault();
+                console.log("Form Submitted");
+                
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+                let confirmPassword = document.getElementById("confirm-password").value;
+                let msg = document.getElementById("msg");
+                msg.style.color = "red";
+                
+                if(!name || !email || !password || !confirmPassword) {
+                    msg.textContent = "Fill all the fields!";
+                    return false;
+                }
+
+                if(password !== confirmPassword) {
+                    msg.textContent = "Password mismatch!";
+                    return false;
+                }
+                
+                if(password.length < 6) {
+                    msg.textContent = "Password is Weak!";
+                    return false;
+                }
+
+                msg.style.color = "green";
+                msg.textContent = "Success";
+                return true;
+            }
+        </script>
+    </div>
+    </body>
+</html>
