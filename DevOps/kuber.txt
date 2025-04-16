@@ -35,6 +35,12 @@ spec:
 
 
 commands:-
+# Install  kubectl - https://kubernetes.io/releases/download/#binaries
+
+# Install minikube - https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
+
+# check for kubectl and minikube is installed or not
+
 # 1. Start Minikube with Docker driver (if you haven't done it already)
 minikube start --driver=docker
 
