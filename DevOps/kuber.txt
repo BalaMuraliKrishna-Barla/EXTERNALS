@@ -38,7 +38,6 @@ commands:-
 # Install  kubectl - https://kubernetes.io/releases/download/#binaries
 
 # Install minikube - https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
-
 # check for kubectl and minikube is installed or not
 
 # 1. Start Minikube with Docker driver (if you haven't done it already)
@@ -56,6 +55,8 @@ kubectl apply -f reg-app.yaml
 # 5. Expose the service (if not done automatically in the YAML file)
 # This step may be redundant because it's already in the YAML file, but you can do it manually:
 kubectl expose deployment reg-app --type=NodePort --port=5000
+
+# minikube image load regform     
 
 # 6. Get the service URL (this will open the service's URL in your browser)
 minikube service reg-service --url
